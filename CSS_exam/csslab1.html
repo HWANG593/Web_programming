@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>exercise</title>
+    <style>
+        h1 {
+            background-image : linear-gradient(to right, red, orange, yellow, green, blue, navy, purple);
+            width : 400px;
+            height : 200px;
+            margin-left : auto;
+            margin-right : auto;
+            border-radius : 30px;
+            line-height : 100px;
+            text-align : center;
+        }
+        #weather{
+            color : blue;
+        }
+
+        #kind{
+            color : white;
+        }
+
+        img {
+            width : 200px;
+            height : 200px;
+            border : 2px solid pink;
+            box-shadow : 3px 3px 10px pink;
+        }
+        img:hover{
+            opacity : 0.3;
+        }
+
+        div{
+            width : 700px;
+            height : 250px;
+            margin-left : auto;
+            margin-right : auto;
+        }
+    </style>
+</head>
+<body>
+<h1><span id="weather">날씨</span>
+    <span id="kind">의 종류</span>
+</h1>
+<hr>
+<div>
+    <img src = 'http://localhost:8000/edu/images/sun.png'>
+    <img src = 'http://localhost:8000/edu/images/rain.png'>
+    <img src = 'http://localhost:8000/edu/images/cloud.png'>
+</div>
+
+<div>
+    <img src = 'http://localhost:8000/edu/images/cloud_sun.png'>
+    <img src = 'http://localhost:8000/edu/images/snow.png'>
+    <img src = 'http://localhost:8000/edu/images/etc.png'>
+</div>
+</body>
+</html>

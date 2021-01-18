@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 학습</title>
+    <style>
+        header {
+            color : purple;
+            width : 100%;
+		    height : 100px;
+            background-image : linear-gradient(to right, red, orange, yellow, green, blue, navy, purple);
+            text-align : center;
+            text-shadow:2px 2px 3px white;
+        }
+
+        nav {
+            text-align : center;
+
+        }
+        a {
+            margin : 30px;
+            text-decoration : none;
+        }
+
+        a:hover{
+            font-weight : bold; /* 하이퍼링크에 커서 올릴 시 글자가 굵어짐*/
+        }
+
+        section {
+            width : 70%;
+            height : 300px;
+            margin-left : auto;
+            margin-right : auto;
+        }
+
+        article {
+            width : 80%;
+            height : 300px;
+            margin-left : auto;
+            margin-right : auto;
+            border : 2px dotted purple;
+            border-radius : 30px;
+            margin-top : 10px;
+            margin-bottom : 20px;
+        }
+
+        aside {
+            width : 100%;
+            height : 100px;
+        }
+
+        footer {
+            position:absolute;
+            bottom: 0;
+            left : 0;
+            width : 100%;
+            height : 50px;
+            background-color : black;
+            text-align : center;
+            color : white;
+            overflow : hidden;
+        }
+
+        table,tr,th {
+            border: 1px solid green;
+            border-collapse: collapse;
+        }
+
+        th{
+            background-color: #00FF33;
+        }
+
+        #caption{
+            text-align :center;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <h1>HTML5 학습</h1>
+    <nav>
+        <a href='http://www.w3.org/'>W3C</a>
+        <a href='http://www.w3schools.com/'>W3SCHOOLS</a>
+        <a href='https://jquery.com/'>jQuery</a>
+    </nav>
+</header>
+
+
+<section>
+<article>
+    <h2 style="color:purple">나의 소개 </h2>
+    <ul>
+        <li>이름 : 황 영민</li>
+        <li>별명 : 황구</li>
+        <li>관심기술 : AI,빅데이터</li>
+        <li>취미 : 축구</li>
+    </ul>
+</article>
+
+<article>
+    <h3 style="color:green">재미있게 읽은  </h3>
+    <table border="1">
+        <tr><th>제목</th><th>장르</th></tr>       <!-- tr(table row)은 행을 나타냄 th(table header)는 제목행-->
+        <tr><td>나미야 잡화점의 기적</td><td>소설</td></tr>
+        <tr><td>파이썬 정복</td><td>교육</td></tr>
+        <tr><td>위포트GSAT</td><td>시험</td></tr>
+    </table>
+</article>
+
+<article>
+    <h3 style="color:blue">자랑하고 싶은 <span style="color:purple">우리 동네</span>의 아름다운 곳</h3>
+    <figure>
+    <figurecaption>월드컵경기장 일대 5대 공원 중 하나이다</figurecaption><br>
+    <img src = 'http://localhost:8000/edu/images/하늘공원.jpg' width="300" height="150">
+    <figcaption><div id="caption">서울 상암동의 하늘공원</div></figcaption>
+    </figure>
+</article>
+</section>
+
+
+<aside>
+<h3>우리동네 축구하러 온 손흥민</h3>
+<video width="400" height="300" controls>
+    <source src="son.mp4">
+</video><br>
+</aside>
+
+
+<footer>
+<em>
+    이 문서는 황 영민에 의해 HTML5와 CSS3 기술을 사용하여 2021년 01월 14일에 작성하였습니다.(ver 1.0)
+</em>
+</footer>
+</body>
+</html>

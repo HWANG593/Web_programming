@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>HTML5 학습</title>
     <style>
+        html,body {
+            height : 100%;
+            margin : 0;
+        }
         header {
             color : purple;
             width : 100%;
@@ -21,7 +25,10 @@
             margin : 30px;
             text-decoration : none;
         }
-
+        #wrapper{
+            position:relative;
+            min-height : 100%;
+            }
         a:hover{
             font-weight : bold; /* 하이퍼링크에 커서 올릴 시 글자가 굵어짐*/
         }
@@ -70,13 +77,14 @@
             background-color: #00FF33;
         }
 
-        #caption{
+        .caption{
             text-align :center;
         }
 
     </style>
 </head>
 <body>
+<div id = "wrapper">
 <header>
     <h1>HTML5 학습</h1>
     <nav>
@@ -99,7 +107,7 @@
 </article>
 
 <article>
-    <h3 style="color:green">재미있게 읽은  </h3>
+    <h3 style="color:green">올해 재미있게 읽은 책</h3>
     <table border="1">
         <tr><th>제목</th><th>장르</th></tr>       <!-- tr(table row)은 행을 나타냄 th(table header)는 제목행-->
         <tr><td>나미야 잡화점의 기적</td><td>소설</td></tr>
@@ -111,9 +119,9 @@
 <article>
     <h3 style="color:blue">자랑하고 싶은 <span style="color:purple">우리 동네</span>의 아름다운 곳</h3>
     <figure>
-    <figurecaption>월드컵경기장 일대 5대 공원 중 하나이다</figurecaption><br>
+    <figurecaption><div class="caption">월드컵경기장 일대 5대 공원 중 하나이다</div></figurecaption><br>
     <img src = 'http://localhost:8000/edu/images/하늘공원.jpg' width="300" height="150">
-    <figcaption><div id="caption">서울 상암동의 하늘공원</div></figcaption>
+    <figcaption><div class="caption">서울 상암동의 하늘공원</div></figcaption>
     </figure>
 </article>
 </section>
@@ -132,5 +140,6 @@
     이 문서는 황 영민에 의해 HTML5와 CSS3 기술을 사용하여 2021년 01월 14일에 작성하였습니다.(ver 1.0)
 </em>
 </footer>
+</div>
 </body>
 </html>

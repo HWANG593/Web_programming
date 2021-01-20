@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>자바스크립트의 연산자(1)</h1>
+<hr>
+<pre> <!-- 텍스트를 출력하는데 있어서 <br> 태그가 없어도 enter를 개행으로 인식한다 -->
+<script>
+	document.writeln(10>5);
+	document.writeln("abc">"ABC"); // 소문자가 대문자보다 크다
+
+	var str = "가나다";
+	document.writeln(str == "가나다");
+	document.writeln(true == 1);    // '==' 서로 다른 데이터를 타입을 맞춰서 비교한다.
+	document.writeln("100" == 100); // 두 개의 타입을 하나로 일치해서 비교한다. 숫자를 문자열로 바꾼다.
+	document.writeln(true === 1);   // '===' 타입을 맞추지 않고 비교한다.
+	document.writeln("100" === 100);	
+	document.writeln(10/3);
+	document.writeln(10%3);
+
+	var num=10;
+	document.writeln(num++); // 현재 num 변수의 값을 전달하고 후에 +1 시켜라
+	document.writeln(--num);  // 현재 num 변수의 값에서 -1 한 후 전달해라 즉, 위에의해 num=11에서 감소시켜서 10출력
+</script>
+</pre>
+</body>
+</html>

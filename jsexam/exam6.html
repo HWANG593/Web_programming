@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>자바스크립트의 연산자(2)</h1>
+<hr>
+<pre>
+<script>
+	var num=window.prompt("숫자 하나를 입력해 주세요");    //프롬프트 창에 내용이 뜨고 리턴 값은 무조건 문자열로 출력
+	window.alert(num)       // 창에 num을 문자열로 출력 취소하면 null뜬다
+	// num이 짝수이면 "xx는 짝수"
+	// num이 홀수이면 "xx는 홀수"
+	num % 2 == 0 && document.writeln(num+"는 짝수");   // && : and 연산자 앞에 식이 거짓이면 두번째는 시도조차 하지 않는다. 단축 논리연산!
+	num % 2 == 0 || document.writeln(num+"는 홀수");   // || : or 연산자 앞에 식이 거짓이면 두번째는 수행 앞에 식이 참이면 뒤에는 수행도 안함
+    // 논리 and , 논리 or 를 통해 if문을 대신할 수 있다.
+</script>
+</pre>
+</body>
+</html>
+

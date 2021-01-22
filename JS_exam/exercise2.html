@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function sum(p) {
+        var result = 0
+        if (typeof p == 'number'){
+            for(i=1; i<=p; i++){
+                result += i
+            }
+        return result
+        }
+
+        else{   //typeof p 가 undefined이면
+            return  //return undefined
+        }
+    }
+
+    var num = Math.floor(Math.random() * 6);
+    var f1
+    if (num==0){
+        f1 = sum()
+        document.write("<h3>결과값이 없어요!!</h3>")
+    }
+    else {
+        f1 = sum(num)
+        document.write("<h2>호출 결과값 :"+f1+"</h2>")
+    }
+
+</script>
+</body>
+</html>

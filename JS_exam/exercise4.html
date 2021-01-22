@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var num = Math.floor(Math.random() * 3)+1;
+    console.log(num)
+        if (num==1){
+            if (window.confirm("다음 페이지로 이동하시겠습니까?")){
+                location.href = "http://www.daum.net"
+            }
+            else{
+                location.href = "http://localhost:8000/edu/first.html"
+            }
+
+
+        }
+        else if (num==2){
+            if (window.confirm("네이버 페이지로 이동하시겠습니까?")){
+                location.href = "http://www.naver.com"
+            }
+            else{
+                location.href = "http://localhost:8000/edu/first.html"
+            }
+        }
+
+        else if (num==3){
+            if (window.confirm("구글 페이지로 이동하시겠습니까?")){
+                location.href = "http://www.google.com"
+            }
+            else{
+                location.href = "http://localhost:8000/edu/first.html"
+            }
+        }
+</script>
+</body>
+</html>

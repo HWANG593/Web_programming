@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function calc() {
+        var result = 0
+        var count = 0
+        if (arguments.length == 0){
+            return 0
+        }
+
+        else{
+            for(var i in arguments){
+                if (typeof arguments[i] == 'number'){
+                    result += arguments[i]
+                    count+=1
+                }
+                else{
+                    break
+                }
+            }
+            if (count == arguments.length)
+                return result
+            else
+                return document.write("숫자만 전달하세요")
+        }
+    }
+
+calc(10,20)
+
+</script>
+
+</body>
+</html>

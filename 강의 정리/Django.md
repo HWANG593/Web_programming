@@ -172,7 +172,7 @@
 
 #### 장고의 처리 흐름
 
-![Django_flow](C:\Users\HYM\AppData\Roaming\Typora\typora-user-images\image-20210126203413522.png)
+![Django_flow](https://github.com/HWANG593/Web_programming/blob/master/images/Django_flow.png?raw=true)
 
 * 웹 클라이언트의 요청을 받아 장고에서 MTV 모델에 따라 처리하는 과정이다
   * 클라이언트로부터 요청을 받으면 URLconf 모듈을 이용하여 URL을 분석한다.

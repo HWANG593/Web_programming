@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    h1 {
+        display : inline;
+    }
+</style>
+<body>
+
+    <p>
+        {% if name and opinion %}    <!--num이라는 키값으로 보관된 밸류가있느냐-->
+            <div>
+            <h1 style="color:green">{{name}}</h1>
+            <h1>님이 남긴 글입니다.</h1>
+            </div>
+            <hr>
+            <h2>{{opinion}}</h2>
+
+        {% else %}
+            <form method="POST" action="/workapp/exercise2/">
+                {% csrf_token %}
+                <h1>의견을 남겨 주세요</h1>
+                <hr>
+                <input type="text" name="name" placeholder="작성자 이름을 입력해 주세요",required><br>
+                <textarea name = "opinion" cols="40" rows="8" placeholder="자신의 의견을 간단히 적어주세요.",required></textarea><br>
+                <input type="submit" value="제출">
+                <input type="reset" value="재작성">
+            </form>
+        {% endif %}
+    </p>
+
+</body>
+</html>
+</body>
+</html>

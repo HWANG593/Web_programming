@@ -98,7 +98,7 @@
 
 * 앞에서 살펴본 URL을 이용하면 서버에 특정 데이터를 요청할 수 있다. 여기서 요청하는 데이터에 특정 동작을 수행하고 싶으면 HTTP 요청 메서드(HTTP Request Methods)를 이용한다.
 
-| 가                              | 나                                 |
+| HTML 사용 시 요청 방식          | 방식                               |
 | ------------------------------- | ---------------------------------- |
 | GET : 존재하는 자원에 대한 요청 | PUT : 존재하는 자원에 대한 변경    |
 | POST : 새로운 자원을 생성       | DELETE : 존재하는 자원에 대한 삭제 |
@@ -188,3 +188,310 @@
 * **가상환경은 하나의 PC에서 프로젝트 별로 독립된 파이썬 실행 환경(runtime/interpreter)을 사용할 수 있도록 해준다.**
 
 * 가상 환경을 사용하지 않으면 패키지의 버전 충동을 일으킬 소지가 생기기 때문에, 가상 환경을 구성하여 사용하는 것이 권장된다.
+
+
+
+### HttpRequest와 HttpResponse
+
+>장고는 request와 response 객체로 서버와 클라이언트가 정보를 주고 받는다.
+>
+>이를 위해 장고는 django.http 모듈에서 HttpRequest와 HttpResponse API를 제공한다.
+
+
+
+#### 서버 - 클라이언트 통신 절차
+
+* 특정 페이지가 요청(request)되면, 장고는 요청 시 메타데이터(여러 다양한 정보)를 포함하는 HttpRequest 객체를 생성
+* 장고는 urls.py에서 정의한 특정 View 함수에 첫 번째 인자로 해당 객체(request)를 전달
+* 해당 View는 결과값을 HttpResponse 혹은 JsonResponse 객체에 담아 전달
+
+
+
+#### HttpRequest 객체
+
+* 주요 속성(Attribute)
+  * HttpRequest.body	    :	request의 body 객체
+  * HttpRequest.headers   :	request의 headers 객체
+  * HttpRequest.COOKIES  :	모든 쿠키를 담고 있는 딕셔너리 객체
+  * HttpRequest.method	:	request의 메소드 타입
+  * HttpRequest.GET		   :	GET 파라미터를 담고 있는 딕셔너리 같은 객체
+  * HttpRequest.POST		 :	POST 파라미터를 담고 있는 딕셔너리 같은 객체	
+
+
+
+* 주요 메소드(Methods)
+  * HttpRequest.read
+  * HttpRequest.get_host()
+  * HttpRequest.get_port()
+
+
+
+#### HttpResponse 객체
+
+> HttpResponse(data, content_type) 
+>
+> response를 반환하는 가장 기본적인 함수로서 주로 html을 반환
+
+* string 전달하기
+  * HttpResponse("Here's the text of the Web page.")
+
+
+
+* html 태그 전달하기
+  * response = HttpResponse()
+  * response.write("\<p>Here's the text of the Web page.\</p>")
+
+
+
+#### HttpRedirect
+
+>별다른 response를 하지는 않고, 지정된 URL페이지로 redirect 함
+>
+>첫번째 인자로 URL을 반드시 지정해야 하며, 경로는 절대경로 혹은 상대경로를 이용할 수 있다.
+
+
+
+#### Render
+
+* render(request(필수), template_name(필수), context=None, content_type=None, status=None, using=None)
+* render는 HttpResponse 객체를 반환하는 함수로 template를 context와 엮어 HttpResponse로 쉽게 반환해주는 함수이다.
+* template_name에는 불러오고 싶은 템플릿명을 적는다
+* **context에는 View에서 사용하던 변수(dictionary 자료형)를 html 템플릿에서 전달하는 역할**을 함
+* key 값이 템플릿에서 사용할 변수이름, value값이 파이썬 변수 값이된다.
+
+
+
+#### views.py
+
+```django
+from django.shortcuts import render
+
+def my_view(request):
+	name = 'joey'
+	return render(request,'app/index.html',{'name':name})
+```
+
+
+
+#### JsonResponse
+
+
+
+
+
+
+
+### Django 템플릿
+
+>Django의 템플릿 언어를 사용하면 강력함과 편리함으로 인해 작업을 수월하게 할 수 있다.
+>
+>변수, 필터, 태그, 주석 등 4가지 기능을 제공한다.
+>
+>**템플릿 변수 : {{ 변수명 }} - 값표현  			템플릿 태그(로직) : {% 로직 %} - 로직 구현**
+
+
+
+#### 템플릿 변수
+
+* 템플릿 변수를 사용하면 뷰에서 템플릿으로 객체를 전달할 수 있다. 
+* {{ 변수 }}와 같이 사용한다.
+* ```점(.)```은 변수의 속성에 접근할 때 사용한다.
+* {{ section.title }} : 뷰에서 보내온 section 객체의 title 속성을 출력한다.
+* 변수명으로 데이터 값 추출이 안되는 경우에는 공백으로 처리된다.
+
+
+
+#### 템플릿 필터
+
+* 변수의 값을 특정 형식으로 변환할 때 사용한다.
+* 변수 다음에 **파이프( | )**를 넣은 다음 적용하고자 하는 필터를 명시한다.
+* 여러 개의 필터를 연속적으로 사용할 수 있다.  ex) {{ text | escape | linebreaks}}
+* 텍스트 컨텐츠를 escape한 다음, 행 바꿈을 \<p> 태그로 바꾸기 위해 사용
+
+
+
+* 몇몇 필터는 ```(:)```문자를 통해 인자를 취한다.
+* 필터 인자는 {{bio | truncatewords : 30 }}과 같이 사용하는데, bio 변수의 처음 30단어를 보여준다.
+* 필터 인자에 공백이 포함된 경우에는 반드시 따옴표로 묶는다.
+* 장고는 30개 정도의 내장 템플릿 필터를 제공하는데, 자주 사용되는 템플릿 필터는 다음과 같다.
+
+
+
+* defalut
+  * 변수가 false 또는 비어있는 경우, 지정된 default를 사용한다.
+  * {{ value|default : 'nothing' }}
+  * value가 제공되지 않았거나 비어있는 경우, 위에서는 'nothing'을 출력한다.
+
+
+
+* length
+  * 값의 길이를 반환한다. 문자열과 목록에 대하여 사용할 수 있다.
+  * {{ value|length }}
+  * value가 ['a','b','c','d']라면, 결과는 4가 된다.
+
+
+
+* upper
+  * 값을 대문자 형식으로 변환한다.
+  * {{ story.headline|upper }}
+  * story.headline의 값을 대문자 형식으로 변환한다.
+
+
+
+#### 템플릿 태그
+
+> HTML 자체는 로직을 구현할 수 없지만, 템플릿 태그를 사용하면 if문, for문 사용이 가능하다.
+>
+> **{% tag %} 또는 {% tag %}...contents...{% endtag %}**
+
+
+
+* {% csrf_token %}
+
+  * 사이트 간 요청 위조(또는 크로스 사이트 요청 위조) Cross-site request forgery는 웹사이트 취약점 공격의 하나로, 사용자가 자신의 의지와는 무관하게 공격자가 의도한 행위(수정, 삭제, 등록 등)를 특정 웹사이트에 요청하게 하는 공격을 말한다.
+  * 문제를 해결하기 위해선 changepassword 페이지의 form 전달 값에 특정한 값을 추가하면 된다. 예를 들어 사용자로 부터 captcha 값을 입력받게 하여, 정상적인 페이지에서의 요청인지 확인하면 되는것이다. 
+  * Django에서는 crsf token을 발행하여 간단하게 처리한다.
+
+
+
+* for
+  * 배열의 각 원소에 대하여 반복처리
+
+```django
+<ul>
+{% for student in student_list %}
+	<li>{{student.name}}</li>
+{% endfor %}
+</ul>
+```
+
+
+
+* if/else
+  * 변수가 true이면 블록의 컨텐츠를 표시, if 태그 내에 템플릿 필터 및 각종 연산자를 사용할수 있다
+
+```django
+{% if student_list %}
+	총 학생 수 : {{student_list|length}}
+{% else %}
+	학생이 없어요!
+{% endif %}
+```
+
+
+
+* block 및 extends
+  * 중복되는 html 파일 내용을 반복해서 작성해야 하는 번거로움을 줄여준다.
+
+```django
+{% extends "base_generic.html" %}
+{% block title %}{{section.title}}{% endblock %}
+{% block content %}
+	<h1>{{section.title}}</h1>
+	
+	{% for story in story_list %}
+		<h2>
+			<a href="{{story.get_absolute_url}}">
+				{{story.headline|upper}}
+			</a>
+		</h2>
+		<p>{{story.tease|truncatewords:"100"}}</p>
+	{% endfor %}
+{% endblock %}
+```
+
+
+
+#### 템플릿 코멘트
+
+> HTML 문서 상에서 주석이 필요할 때 사용하며 장고에서는 두 가지 형식의 코멘트를 제공한다.
+
+* 한 줄 {# 주석내용 #} - 개행 허용되지 않음
+* 여러 줄 {% comment %}    주석내용    {% endcomment %}
+
+
+
+### Query 문자열
+
+> HTTP Client가 HTTP Server 요청시 서버에서 요청하려는 대상의 URI가 전달되는데 
+>
+> 이 때 함께 전달될 수 있는 문자열이다.
+
+#### Query
+
+* name = value 형식으로 구성되어야 한다.
+* 여러개의 name = value가 사용될 때는 & 기호로 구분되게 구성해야 한다.
+* 영문과 숫자는 그대로 전달되지만 한글과 특수문자들은 %기호와 16진수 코드값으로 전달된다(UTF-8)
+* 공백문자는 + 기호 또는 %2C로 전달된다.
+* Query 문자열을 가지고 HTTP Server에게 정보를 요청할 때에는 두 가지 방식이 있다.
+  * GET 방식 : Query문자열이 외부에 보여진다. 요청 URL 뒤에 (?) 기호와 함께 전달된다.
+  * POST 방식 : Query문자열이 외부에 보여지지 않는다. Query 문자열의 길이에 제한이 없다.
+
+https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=ABCabc+123%EA%B0%80%EB%82%98%EB%8B%A4
+
+* ? 뒤부터 Query 한글은 3바이트
+
+
+
+#### 장고 강의교안 1 (가상환경부터 리뷰하면서 설명)
+
+* `127.0.0.1` : 모든 컴터에서 자기 컴터 도메인 의미함
+  * = localhost 의미함
+* 장고 프로그래밍에서 가상환경 만드는건 필수는 아님.
+  * 테마(데이터 분석, 웹 서버)에 맞게 가상환경을 만들고, 이에 맞춰 추가 API 설치하는 것이 일반적 
+* 경로 탐색에서 `cd \` 처럼 백슬래쉬부터 시작하면 최상위부터 경로 탐색을 시작한다는 의미
+
+* 장고 프로젝트 생성: `cd 명령어 두번` -> `activate` -> DJANGOexam으로디렉토리 이동
+
+ -> `django-admin startproject 프로젝트 이름`
+
+* `settings.py` : 장고 프로그래밍에서 일어나는 환경설정하는 파일
+* `urls.py`: urlpatterns에서 path 설정
+
+#### secondapp 코드 설명
+
+* HttpRequest: HTTP 프로토콜기반으로 요청이 왔을 때 요청 관련 정보를 제공하는 객체, **요청 처리**
+
+  * 뷰함수가 호출될 때 아규먼트로 전달된다. (장고 서버가 객체를 생성)
+
+* HttpResponse: HTTP 프로토콜기반으로 온 요청에 대한 응답시 사용하는 객체, **응답 처리**
+
+  * 응답 내용을 담는다. (HTML 태그문자열, 템플릿을 사용한 랜더 객체)
+
+* 템플릿 변수: {{ 변수명 }} => 값 표현
+
+  * 변수는 뷰가 넘겨준 딕셔너리의 key 이름임
+  * 꼭 딕셔너리로 전달해야 함
+
+* 템플릿 태그(로직): {% 로직 %} => 로직 구현 
+
+  * 화면에 영향은 없으나 post일때는 토큰이 있어야됨. -> 보안때문에 
+
+* `<a>` 태그로 요청하는건 무조건 get 방식임
+
+* get 방식: URL 직접 입력할 때, 하이퍼링크 요청할 때,  form태그의 method 속성 get일 때
+
+* post 방식: form태그의 method 속성 post일 때
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

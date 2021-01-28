@@ -10,9 +10,21 @@ def exercise1(request):
 
 def exercise2(request):
     if request.method == 'POST':
-        name = request.POST['name']
-        opinion = request.POST['opinion']
-        context = {'name': name,'opinion' : opinion}
+        na = request.POST['name']
+        op = request.POST['opinion']
+        context = {'nam': na,'opi' : op}
     else:
         context = None
     return render(request, 'exercise2.html', context)
+
+def product1(request):
+    context = None
+    return render(request, 'product1.html', context)
+
+def basket1(request):
+    if request.method == 'GET':
+        productid = request.GET['pid']
+        context = {
+            'pid':productid,
+        }
+    return render(request, 'basket1.html', context)

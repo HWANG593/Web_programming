@@ -1,0 +1,69 @@
+{% extends 'basesimple.html' %}
+
+{% block mycss %}
+
+    h1,div {
+        text-align : center;
+    }
+
+    img {
+        width : 200px;
+        height : 200px;
+        border : 2px solid gray;
+        box-shadow : 3px 3px 10px gray;
+    }
+
+{% endblock %}
+
+{% block mycontent %}
+        <form method="POST" action="http://localhost:8000/workapp/product1">
+            <h1>원하는 상품을 클릭해 주세요!!</h1><br>
+            <hr>
+            {% csrf_token %}
+            <div>
+            <a href="http://localhost:8000/workapp/basket1/?pid=p001">
+                <img src="/static/images/1.jpg">
+            </a>
+
+            <a href="http://localhost:8000/workapp/basket1/?pid=p002">
+                <img src="/static/images/2.jpg">
+            </a>
+
+            <a href="http://localhost:8000/workapp/basket1/?pid=p003">
+                <img src="/static/images/3.jpg">
+            </a>
+
+            <a href="http://localhost:8000/workapp/basket1/?pid=p004">
+                <img src="/static/images/4.jpg">
+            </a>
+
+            <a href="http://localhost:8000/workapp/basket1/?pid=p005">
+                <img src="/static/images/5.jpg">
+            </a>
+            </div>
+
+            <br>
+
+            <div>
+            <a href="http://localhost:8000/workapp/basket1/?pid=p006">
+                <img src="/static/images/6.jpg">
+            </a>
+
+            <a href="http://localhost:8000/workapp/basket1/?pid=p007">
+                <img src="/static/images/7.jpg">
+            </a>
+
+            <a href="http://localhost:8000/workapp/basket1/?pid=p008">
+                <img src="/static/images/8.jpg">
+            </a>
+
+            <a href="http://localhost:8000/workapp/basket1/?pid=p009">
+                <img src="/static/images/9.jpg">
+            </a>
+
+            <a href="http://localhost:8000/workapp/basket1/?pid=p010">
+                <img src="/static/images/10.jpg">
+            </a>
+            </div>
+        </form>
+{% endblock %}

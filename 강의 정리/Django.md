@@ -475,15 +475,11 @@ https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&qu
 
 
 
+#### Tip
 
-
-
-
-
-
-
-
-
+* URL을 입력해서 요청하는건 GET방식
+* View의 def에서 정의된 딕셔너리 키값 (''안에 있는 애들)을 html에서 {{ }}안에 담아서 사용한다
+* \<P> p태그는 paragraph
 
 
 

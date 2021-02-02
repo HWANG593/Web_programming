@@ -20,7 +20,7 @@
 </style>
 ```
 
-
+<br>
 
 #### CSS를 사용한 웹 페이지 개발
 
@@ -28,7 +28,7 @@
 * 클라이언트 기기에 알맞는 반응형 웹 페이지를 개발할 수 있다.
 * 이미지의 사용을 최소화시켜 가벼운 웹 페이지 개발을 가능하게 한다.
 
-
+<br>
 
 #### CSS 사용의 이점
 
@@ -37,7 +37,7 @@
 * 재사용성 : 독립된 스타일 모듈 작성, 여러 HTML 문서에 공통으로 활용
 * 생산성 : 역할 분담에 따른 전문화, 모듈 단위의 협업과 생산성의 향상
 
-
+<br>
 
 #### CSS의 작성 방법
 
@@ -56,9 +56,10 @@
     \</style>
 
 * 외부 파일 연결 방법 - 독립된 파일(확장자.css)을 만들어서 **HTML** 문서에 연결하는 방법
+  
   * \<link rel = "stylesheet" type="text/css" href="style.css"/>
 
-
+<br>
 
 #### CSS 스타일 선언 형식
 
@@ -73,7 +74,7 @@ h1 								/* 선택자 */
 }								/* 스타일 속성 블록 종료 */
 ```
 
-
+<br>
 
 #### Cascade Style Sheet
 
@@ -81,33 +82,33 @@ h1 								/* 선택자 */
 
   * 스타일을 적용하기 위해 대상을 선택하는 방법
 
-  
+<br>
 
 * 전체 선택자(*)
   * 페이지에 있는 모든 요소를 대상으로 스타일을 적용할 때 사용
   * 다른 선택자와 함께 모든 하위 요소에 한꺼번에 스타일을 적용하려고 할 때 주로 사용
   * 예) *{margin : 0; padding : 0;}
 
-
+<br>
 
 * 태그 선택자(div, img, h1 등)
   * 문서 안의 특정 태그에 스타일이 모두 적용됨
   * 예) p{font-size : 12px; font-family : "돋음";}
 
-
+<br>
 
 * 클래스 선택자(.class)
   * 문서 안에서 여러번 반복할 스타일이면 클래스 선택자로 정의, .뒤에 클래스 이름 지정
   * 예) .redtext{color : red;}
 
-
+<br>
 
 * id 선택자(#id)
 
   * 문서 안에서 한번만 사용한다면 id 선택자로 정의하며 파운드(#) 다음에 id 이름 지정
   * 예) #pic2{clear : both; float:left;}
 
-  
+<br>
 
 * 하위 선택자(descendant selector)
 
@@ -115,13 +116,13 @@ h1 								/* 선택자 */
   * 하위 선택자를 정의할 때는 상위 요소와 하위 요소를 나란히 작성한다.
   * 예) section p{color : blue;}
 
-
+<br>
 
 * 자식 선택자(child selector)
   * 부모 요소의 자식 요소에만 스타일이 적용된다.
   * 예) section > p{color : blue;}
 
-
+<br>
 
 * 인접 형제 선택자(adjacent selector)
 
@@ -133,20 +134,20 @@ h1 								/* 선택자 */
 
   * 예) h1 + p{text-decoration : underline;}
 
-
+<br>
 
 * 형제 선택자(sibling selector)
   * 형제 요소들 중에서 모든 동생 요소들에 스타일이 적용된다.
   * 예) h1 ~ p{text-decoration : underline;}
 
-
+<br>
 
 * 그룹 선택자(group selector)
   * 같은 속성을 적용해야할 경우 똑같은 스타일을 두번 정의하지 않고 한번에 묶어서 정의한다.
   * 쉼표로 선택자 구분
   * 예) a, p{color : #fffff;}
 
-
+<br>
 
 * 속성 선택자(property selector)
   * 태그에 정의된 속성과 속성의 값을 가지고 대상을 정하는 선택자이다.
@@ -159,7 +160,7 @@ h1 								/* 선택자 */
 | [속성 $= 값] | '속성'의 '값'이 지정한 문자로 끝나는 속성에 대해서만 스타일을 적용 |
 | [속성 *= 값] | 속성 값 중에 '값'의 일부가 포함되어 있는 속성에 스타일을 지정 |
 
-
+<br>
 
 * 가상 선택자(pseudo selector)
   * 웹 문서의 소스에는 실제로 존재하지 않지만 필요에 의해 임의로 가상의 선택자를 지정하여 사용하는 것을 말한다.
@@ -175,7 +176,7 @@ h1 								/* 선택자 */
 |    :hover     | 사용자가 대상 요소를 가리키고 있을 때 스타일을 적용한다.(롤 오버 등) |
 |    :focus     | 대상 요소가 포커스 되었을 때 스타일을 적용한다.              |
 
-
+<br>
 
 #### 주요 CSS 속성들
 
@@ -200,7 +201,7 @@ h1 								/* 선택자 */
 * POSITION : clear, float, left, top, position, z-index
 * LIST : list-style-type, list-style-position, list-style-image
 
-
+<br>
 
 #### CSS3에서 추가된 속성들
 
@@ -213,7 +214,7 @@ h1 								/* 선택자 */
 | -o-      | 오페라                |
 | -ms-     | 인터넷 익스플로러     |
 
-
+<br>
 
 * **border-radius**
 
@@ -229,7 +230,7 @@ div.rounded {
 }
 ```
 
-
+<br>
 
 * **box-shadow**
 
@@ -250,7 +251,7 @@ a img:hover{
 </style>
 ```
 
-
+<br>
 
 * **text-shadow**
 
@@ -297,7 +298,7 @@ body{
 </style
 ```
 
-
+<br>
 
 * **gradient**
   * background : linear-gradient(direcition, color1, color2, ..., color3);
@@ -310,7 +311,7 @@ body{
 | to right  | 왼쪽에서 오른쪽으로   |
 | ndeg      | n도의 방향            |
 
-
+<br>
 
 * **opacity**
   * 칼라나 이미지의 투명도를 설정하는 속성으로 0.0~1.0 사이의 값을 설정한다.

@@ -2,13 +2,13 @@
 
 ## Django(장고) 프로그래밍
 
-
+<br>
 
 ### 웹의 기본 이해
 
 > 웹은 보통 **월드 와이드 웹(WWW)**이라고도 하며, 인터넷이라는 연결을 통해 여러 컴퓨터가 연결되어 서로 정보를 나누는 연결망들을 의미한다. 이 웹이라는 것을 어떤 관점에서 보냐에 따라 다음과 같은 개념이 생긴다.
 
-
+<br>
 
 #### 정보를 제공하는 컴퓨터와 정보를 받아가는 컴퓨터
 
@@ -20,7 +20,7 @@
 
   정보를 제공받기 위해 서버를 찾아 접속하는 컴퓨터이다. 보통은 고정된 주소 없이 인터넷 연결을 통해 서버에 접근한다. 일반적으로 우리가 웹 브라우징을 위해 쓰고 있는 컴퓨터들이 이에 해당한다.
 
-
+<br>
 
 #### 웹 프로그램의 구조 별 개념
 
@@ -32,7 +32,7 @@
 
   **사용자가 접속하면 그에 맞는 데이터를 보내주기 위해 여러가지 처리를 담당하는 로직을 구성**한다. Django기반의 Python이나 데이터베이스 등이 여기에 속한다.  프론트엔드 코드 조각들을 여기서 가지고 있다가, 사용자에게 적절하게 처리해서 보내주는 역할도 한다.
 
-
+<br>
 
 #### 서버 - 클라이언트 간통신 방향 별 개념
 
@@ -44,15 +44,15 @@
 
   **요청을 받은 서버가 받은 데이터를 처리하여 사용자에게 정보를 내려주는 것**, 응답에는 여러가지 형태의 데이터가 내려갈 수 있는데, 우리가 보통 웹 사이트에 접속했을 때 보여지는 화면들은 응답에 HTML, CSS, JavaScript 코드가 포함되어 그걸 웹 브라우저가 해석하고 실행하여 화면에 그려주게 되는 케이스가 속한다.(JSON, XML 등)
 
-  
+<br>
 
 ---
 
-
+<br>
 
 ### HTTP 프로토콜(통신 규약)
 
-
+<br>
 
 #### HTTP(Hypertext Transfer Protocol)
 
@@ -60,7 +60,7 @@
 * "나는 이렇게 줄테니 넌 이렇게 받고 난 너가 준거 그렇게 받을게" - 규칙 정의
 * 웹에서는 브라우저와 서버 간에 데이터를 주고받기 위한 방식으로 **HTTP 프로토콜**을 사용한다.
 
-
+<br>
 
 #### HTTP 프로토콜의 특징
 
@@ -70,7 +70,7 @@
 * 따라서 서버는 세션과 같은 별도의 추가 정보를 관리하지 않아도 되고, 다수의 요청 처리 및 서버의 부하를 줄일 수 있는 성능 상의 이점이 생긴다.
 * HTTP 프로토콜은 일반적으로 TCP/IP 통신 위에서 동작하며 기본 포트는 **80**번이다.
 
-
+<br>
 
 #### HTTP Request & HTTP Response
 
@@ -79,7 +79,7 @@
 * 클라이언트란 요청을 보내는 쪽을 의미하며 웹 관점에서는 브라우저를 의미한다.
 * 서버란 요청을 받는 쪽을 의미하며 데이터를 보내주는 원격지의 컴퓨터를 의미한다.
 
-
+<br>
 
 #### URL(Uniform Resource Locators)
 
@@ -92,7 +92,7 @@
     * resource path가 생략되면 기본파일(index.html)을 달라는 의미로 해석된다.
   * a=b&x=y : query
 
-
+<br>
 
 #### HTTP 요청 메서드
 
@@ -103,7 +103,7 @@
 | GET : 존재하는 자원에 대한 요청 | PUT : 존재하는 자원에 대한 변경    |
 | POST : 새로운 자원을 생성       | DELETE : 존재하는 자원에 대한 삭제 |
 
-
+<br>
 
 #### HTTP 상태 코드
 
@@ -115,11 +115,11 @@
 
 ​									<ㅡ HTTP Response(상태 코드 + 응답 Body)
 
-
+<br>
 
 ---
 
-
+<br>
 
 ## Django(장고)
 
@@ -127,7 +127,7 @@
 >
 > 고도의 데이터베이스 기반 웹사이트를 작성하는데 있어 수고를 더는 것이 주된 목표이다.
 
-
+<br>
 
 ### 라이브러리와 프레임워크
 
@@ -137,7 +137,7 @@
 * 사용여부는 코드 작성자의 선택 사항이며 새로운 라이브러리 제작 시에도 엄격한 규칙은 없다.
 * 프로그램 제작 시 필요한 기능이며 자동차로 치면 (바퀴, 헤드라이트, 에어백 등) 부품에 해당한다.
 
-
+<br>
 
 #### 프레임워크란
 
@@ -146,7 +146,7 @@
 * **프레임워크에 의존하여 개발해야하고, 프레임워크가 정의한 규칙을 준수해야 한다.**
 * 프로그램 기본 구조(뼈대)역할이며 자동차로 치면 (자동차 프레임)에 해당한다
 
-
+<br>
 
 #### 장고 프로그램 개발 패턴
 
@@ -160,7 +160,7 @@
 
  **ㅡ> 확장성과 유지보수성 향상**
 
-
+<br>
 
 #### 장고 프레임 워크 : **MTV(Model Template View)**
 
@@ -168,7 +168,7 @@
 * Template(View) : 사용자에게 보여지는 영역
 * View(Controller) : 프로그램 로직이 동작하여 적절한 처리 결과를 Template에게 전달하는 역할
 
-
+<br>
 
 #### 장고의 처리 흐름
 
@@ -181,7 +181,7 @@
   * 뷰는 자신의 로직 처리가 끝나면 템플릿을 사용하여 클라이언트에게 전송할 HTML 파일을 생성한다.
   * 뷰는 최종 결과로 HTML 파일을 클라이언트에게 보내 응답한다.
 
-
+<br>
 
 #### 장고 개발환경 구축 (가상 환경)
 
@@ -189,7 +189,7 @@
 
 * 가상 환경을 사용하지 않으면 패키지의 버전 충동을 일으킬 소지가 생기기 때문에, 가상 환경을 구성하여 사용하는 것이 권장된다.
 
-
+<br>
 
 ### HttpRequest와 HttpResponse
 
@@ -197,7 +197,7 @@
 >
 >이를 위해 장고는 django.http 모듈에서 HttpRequest와 HttpResponse API를 제공한다.
 
-
+<br>
 
 #### 서버 - 클라이언트 통신 절차
 
@@ -205,7 +205,7 @@
 * 장고는 urls.py에서 정의한 특정 View 함수에 첫 번째 인자로 해당 객체(request)를 전달
 * 해당 View는 결과값을 HttpResponse 혹은 JsonResponse 객체에 담아 전달
 
-
+<br>
 
 #### HttpRequest 객체
 
@@ -217,14 +217,14 @@
   * HttpRequest.GET		   :	GET 파라미터를 담고 있는 딕셔너리 같은 객체
   * HttpRequest.POST		 :	POST 파라미터를 담고 있는 딕셔너리 같은 객체	
 
-
+<br>
 
 * 주요 메소드(Methods)
   * HttpRequest.read
   * HttpRequest.get_host()
   * HttpRequest.get_port()
 
-
+<br>
 
 #### HttpResponse 객체
 
@@ -235,13 +235,13 @@
 * string 전달하기
   * HttpResponse("Here's the text of the Web page.")
 
-
+<br>
 
 * html 태그 전달하기
   * response = HttpResponse()
   * response.write("\<p>Here's the text of the Web page.\</p>")
 
-
+<br>
 
 #### HttpRedirect
 
@@ -249,7 +249,7 @@
 >
 >첫번째 인자로 URL을 반드시 지정해야 하며, 경로는 절대경로 혹은 상대경로를 이용할 수 있다.
 
-
+<br>
 
 #### Render
 
@@ -259,7 +259,7 @@
 * **context에는 View에서 사용하던 변수(dictionary 자료형)를 html 템플릿에서 전달하는 역할**을 함
 * key 값이 템플릿에서 사용할 변수이름, value값이 파이썬 변수 값이된다.
 
-
+<br>
 
 #### views.py
 
@@ -271,15 +271,15 @@ def my_view(request):
 	return render(request,'app/index.html',{'name':name})
 ```
 
-
+<br>
 
 #### JsonResponse
 
 
 
+<br>
 
-
-
+<br>
 
 ### Django 템플릿
 
@@ -289,7 +289,7 @@ def my_view(request):
 >
 >**템플릿 변수 : {{ 변수명 }} - 값표현  			템플릿 태그(로직) : {% 로직 %} - 로직 구현**
 
-
+<br>
 
 #### 템플릿 변수
 
@@ -299,7 +299,7 @@ def my_view(request):
 * {{ section.title }} : 뷰에서 보내온 section 객체의 title 속성을 출력한다.
 * 변수명으로 데이터 값 추출이 안되는 경우에는 공백으로 처리된다.
 
-
+<br>
 
 #### 템플릿 필터
 
@@ -308,35 +308,35 @@ def my_view(request):
 * 여러 개의 필터를 연속적으로 사용할 수 있다.  ex) {{ text | escape | linebreaks}}
 * 텍스트 컨텐츠를 escape한 다음, 행 바꿈을 \<p> 태그로 바꾸기 위해 사용
 
-
+<br>
 
 * 몇몇 필터는 ```(:)```문자를 통해 인자를 취한다.
 * 필터 인자는 {{bio | truncatewords : 30 }}과 같이 사용하는데, bio 변수의 처음 30단어를 보여준다.
 * 필터 인자에 공백이 포함된 경우에는 반드시 따옴표로 묶는다.
 * 장고는 30개 정도의 내장 템플릿 필터를 제공하는데, 자주 사용되는 템플릿 필터는 다음과 같다.
 
-
+<br>
 
 * defalut
   * 변수가 false 또는 비어있는 경우, 지정된 default를 사용한다.
   * {{ value|default : 'nothing' }}
   * value가 제공되지 않았거나 비어있는 경우, 위에서는 'nothing'을 출력한다.
 
-
+<br>
 
 * length
   * 값의 길이를 반환한다. 문자열과 목록에 대하여 사용할 수 있다.
   * {{ value|length }}
   * value가 ['a','b','c','d']라면, 결과는 4가 된다.
 
-
+<br>
 
 * upper
   * 값을 대문자 형식으로 변환한다.
   * {{ story.headline|upper }}
   * story.headline의 값을 대문자 형식으로 변환한다.
 
-
+<br>
 
 #### 템플릿 태그
 
@@ -344,7 +344,7 @@ def my_view(request):
 >
 > **{% tag %} 또는 {% tag %}...contents...{% endtag %}**
 
-
+<br>
 
 * {% csrf_token %}
 
@@ -352,7 +352,7 @@ def my_view(request):
   * 문제를 해결하기 위해선 changepassword 페이지의 form 전달 값에 특정한 값을 추가하면 된다. 예를 들어 사용자로 부터 captcha 값을 입력받게 하여, 정상적인 페이지에서의 요청인지 확인하면 되는것이다. 
   * Django에서는 crsf token을 발행하여 간단하게 처리한다.
 
-
+<br>
 
 * for
   * 배열의 각 원소에 대하여 반복처리
@@ -365,7 +365,7 @@ def my_view(request):
 </ul>
 ```
 
-
+<br>
 
 * if/else
   * 변수가 true이면 블록의 컨텐츠를 표시, if 태그 내에 템플릿 필터 및 각종 연산자를 사용할수 있다
@@ -378,7 +378,7 @@ def my_view(request):
 {% endif %}
 ```
 
-
+<br>
 
 * block 및 extends
   * 중복되는 html 파일 내용을 반복해서 작성해야 하는 번거로움을 줄여준다.
@@ -400,7 +400,7 @@ def my_view(request):
 {% endblock %}
 ```
 
-
+<br>
 
 #### 템플릿 코멘트
 
@@ -409,7 +409,7 @@ def my_view(request):
 * 한 줄 {# 주석내용 #} - 개행 허용되지 않음
 * 여러 줄 {% comment %}    주석내용    {% endcomment %}
 
-
+<br>
 
 ### Query 문자열
 
@@ -431,7 +431,7 @@ https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&qu
 
 * ? 뒤부터 Query 한글은 3바이트
 
-
+<br>
 
 #### 장고 강의교안 1 (가상환경부터 리뷰하면서 설명)
 
@@ -473,7 +473,7 @@ https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&qu
 
 * post 방식: form태그의 method 속성 post일 때
 
-
+<br>
 
 #### Tip
 

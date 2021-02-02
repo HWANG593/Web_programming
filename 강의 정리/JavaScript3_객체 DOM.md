@@ -21,12 +21,12 @@ obj['속성명1'] = 200
 obj['속성명2'] + "승리"
 ```
 
-
+<br>
 
 * **클래스(생성자함수)**
   * new Array(), new Date()
 
-
+<br>
 
 * **내장 객체**
 
@@ -34,7 +34,7 @@ obj['속성명2'] + "승리"
 >
 >ex) window , document , navigator , screen , DOM객체들 등등
 
-
+<br>
 
 #### DOM(Document Object Model) 프로그래밍
 
@@ -71,11 +71,11 @@ document.body.h1
 // id, class 등으로 찾는다.
 ```
 
-
+<br>
 
 * 브라우저가 HTML문서를 읽어오는걸 타싱 그다음 렌더링
 
-
+<br>
 
 #### DOM 객체를 찾는 방법
 
@@ -87,12 +87,12 @@ document.body.h1
 * document.querySelectorAll("CSS선택자") 	// DOM 객체 배열로, 최근 만들어져 유용
 * document.querySelector("CSS선택자") 	// DOM객체 리턴, 무조건 하나일 때
 
-
+<br>
 
 * DOM 객체 타입
   * Element 타입, Attribute 타입, Text 타입
 
-
+<br>
 
 #### DOM 객체를 통한 동적처리 구현 방법
 
@@ -102,7 +102,7 @@ document.body.h1
   * 변수.innerHTML = "\<p>새로운내용\</p> "		(HTML 태그가 있을 때)
   * 변수.textContent = "새로운내용"					   (Content만 있을 때)	
 
-  
+<br>
 
 * 스타일 바꾸기
 
@@ -111,7 +111,7 @@ document.body.h1
   * 변수.style.background-color = "yellow"	        (```-```기호는 못쓴다)
   * 변수.style.backgroundColor = "yellow"             (```-```기호는 빼고 그 다음 문자를 대문자로)
 
-
+<br>
 
 * 이벤트 핸들러 등록하기
 
@@ -119,29 +119,18 @@ document.body.h1
 
     * <태그명 on이벤트명 = "이벤트 핸들러코드">
 
-    
+  <br>
 
   * 고전 이벤트 모델(전역적 방식) : \<script>태그 안에 정의
 
     * 변수 = DOM객체
     * 변수.on이벤트명 = function(){...} 
 
-    
+  <br>
 
   * 표준 이벤트 모델 : \<script> 태그 안에 정의
 
     * 변수 = DOM 객체
     * dom.addEventListener("이벤트명",function(){...})
-
-
-
-
-
-
-
-
-
-
-
 
 

@@ -13,7 +13,7 @@
   * AJAX
   * JSON 파싱
 
-
+<br>
 
 #### jQuery 라이브러리 사용
 
@@ -23,13 +23,13 @@
   * jQuery 라이브러리를 포함하는 <script> 태그를 작성한다.
   * \<script src = "http://code.jquery.com/jquery-xxx.js">\</script>
 
-
+<br>
 
 * jQuery에서 제공되는 메서드들은 두 가지 방식으로 호출된다.
   * jQuery(자바스크립트객체).xxx()
   * jQuery.xxx()
 
-
+<br>
 
 * jQuery() 함수의 주요 아규먼트
   * jQuery( selector [,context])
@@ -42,7 +42,7 @@
   * jQuery( html, attributes )
   * jQuery( callback )
 
-
+<br>
 
 * $() 사용 예시
 
@@ -59,7 +59,7 @@
   
     ​						DOM객체					이렇게 주면 context()는 전체에서 찾는다.
 
-
+<br>
 
 #### API
 
@@ -68,7 +68,7 @@
   * text() : textContent     - 모든 DOM 객체 출력
   * val() : value                  - 변수는 만들어지지만 첫번째 DOM 객체만 출력
 
-
+<br>
 
 | $    | getter()                | setter(str)                                 | setter(함수)                  | setter(객체)         |
 | ---- | ----------------------- | ------------------------------------------- | ----------------------------- | -------------------- |
@@ -82,7 +82,7 @@
 * index는 찾아진 DOM객체 들의 순서대로 0부터 값을 가진다.
 * getter는 첫번째에 대해서만 꺼내진다.
 
-
+<br>
 
 #### jQuery 이벤트 핸들러
 
@@ -92,7 +92,7 @@
 
   $('...').off() 이벤트핸들러를 해제
 
-  
+<br>
 
 * $('...').이벤트이름(함수)
 
